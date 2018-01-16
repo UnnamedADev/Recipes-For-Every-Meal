@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Joti+One');
+
+html, body {
+    margin: 0; 
+    padding: 0; 
+    font-family: Joti One; 
+    background: #fff6a8;}
+
+header, section, footer {
+    float: left; 
+    width: 100%;}
+
+header {
+    text-align: center;
+    background: #fff6a8;
+    border-bottom: 2px dashed indianred;
+    padding-bottom: 20px;}
+header h1 {
+    font-size: 3em; 
+    margin-bottom: 5px;}
+header h2 {margin: 0;}
+section {
+    background: #ffface; 
+    text-align: center;}
+
+.formHolder, .results {
+    float:left; 
+    width: 100%;}
+
+footer {
+    text-align: center;
+    background: #fff6a8;
+    border-top: 2px dashed indianred;}
+footer p {margin: 0;}
+footer h2 {margin-bottom: 5px;}
