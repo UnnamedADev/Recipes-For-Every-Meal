@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.0.2 - Recipes For Every Meal</title>
+    <title>v0.0.3 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -12,59 +13,100 @@
         <a href="">Wszystkie przepisy</a>
     </nav>
     <section>
-        <div class="formHolder">
             <form action="index.php" method="post">
-                 <table>
-                     <tbody>
-                         <tr>
-                             <td><img src="img/meal1.png"></td>
-                             <td><img src="img/difficulty1.png"></td>
-                         </tr>
-                         <tr>
-                             <td>
-                                <div class="customSelect">
-                                    <select name="fMeal">
-                                         <option value="breakfast">Breakfast</option>
-                                         <option value="lunch">Lunch</option>
-                                         <option value="dinner">Dinner</option>
-                                     </select>
-                                </div>
-                             </td>
-                             <td>
-                                 <div class="customSelect">
-                                     <select name="fDifficulty">
-                                         <option value="newbie">Newbie</option>
-                                         <option value="basic">Basic</option>
-                                         <option value="nightmare">Nightmare</option>
-                                     </select>
-                                 </div>
-                             </td>
-                         </tr>
-                     </tbody>
-                 </table>
-
-                 <div>
-                     <button type="reset" class="negetiveButton">Resetuj</button>
-                     <button type="submit" class="positiveButton">Filtruj</button>
-                 </div>
-                 
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-3">
+                    <div class="customSelect">
+                        <select name="fMeal">
+                           <option value="0">-- Choose meal --</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="tea time">Tea Time</option>
+                            <option value="supper">Supper</option>
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="customSelect">
+                        <select name="fDifficulty">
+                           <option value="0">-- Choose difficulty --</option>
+                            <option value="newbie">Newbie</option>
+                            <option value="basic">Basic</option>
+                            <option value="nightmare">Nightmare</option>
+                            <option value="hell">Hell</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                   <button type="reset" class="button buttonNegative">Reset</button>
+                    <button type="submit" class="button buttonPositive">Filtruj</button>
+                </div>
+                <div class="col-3"></div>
+            </div>
             </form>
-        </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <!-- SCRIPT / filter -->
+                    <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            $meal = $_POST["fMeal"];
+                            $difficulty = $_POST["fDifficulty"];
+                            
+                            $host = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $db = "recipes-for-every-meal";
+                            
+                            $connection = new mysqli($host, $username, $password, $db);
+                            
+                            if($connection->connect_error){
+                                die("ERROR 1");
+                            }else
+                            
+                            $qr = "SELECT recipes.id, recipes.title, meals.name AS mname, difficulties.name AS dname FROM recipes 
+                            INNER JOIN meals 
+                            ON recipes.meal_id=meals.id 
+                            INNER JOIN difficulties
+                            ON recipes.difficulty_id=difficulties.id
+                            WHERE meals.name ='".$meal."' AND difficulties.name='".$difficulty."';";
+                            
+                            $result = $connection->query($qr);
+                            echo "<table class='filtered'><tbody>
+                            <tr>
+                            <th>Tytuł:</th>
+                            <th>Posiłek:</th>
+                            <th>Trudność:</th>
+                            <th></th>
+                            </tr>";
+                            if($result->num_rows>0){
+                                while($row = $result->fetch_assoc()){
+                                    echo "<tr>
+                                    <td>".$row["title"]."</td>
+                                    <td>".$row["mname"]."</td>
+                                    <td>".$row["dname"]."</td>
+                                    <td><a href='choosen.php?obiekt=".$row["id"]."'>Sprawdź</a></td>
+                                    </tr>";
+                                }
+                            }else{
+                                echo "NO DATA";
+                            }
+                            echo "</tbody></table>";
+                        }
+                    ?>
+                </div>
+                <div class="col-3"></div>
+            </div>
+           
         
-        <div class="results">
-           <!-- SCRIPT / filter -->
-            <?php
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-                    $meal = $_POST["fMeal"];
-                    $difficulty = $_POST["fDifficulty"];
-                    
-                    echo $meal;
-                    echo $difficulty;
-                }
-            ?>
-            results here
-        </div>
     </section>
     <footer>
         <h2>Enjoyyy!</h2>

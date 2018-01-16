@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Joti+One');
+/* Basic style */
 
 html, body {
     margin: 0; 
@@ -34,56 +34,68 @@ nav > a {float: left;
 section { 
     text-align: center;}
 
-.formHolder, .results {
-    float:left; 
-    width: 100%;}
-.formHolder table {
-    margin: 20px 0px 20px 25%;
-    border-spacing: 0;
-    width: 50%;}
-.formHolder img {width: 80%;}
-
-.formHolder > form > div:last-of-type {
-    float: left;
-    width: 100%;
-}
-.customSelect {
-    width: auto; float:left;
-    padding: 0; margin: 0;
-    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-}
-.formHolder select {
-    margin-left: auto; margin-right: auto;
-    -webkit-appearance: none;
-    display: block;
-    font-family: oswald;
-    text-transform: uppercase; 
-    font-variant: small-caps;
-    font-size: 1.2em;
-    padding: 10px 40px;
-    background: none;
-    border: 3px solid black;
-    color: black;}
-.formHolder button {
-    -webkit-appearance: none;
-    border: none;
-    font-family: oswald;
-    text-transform: uppercase; 
-    font-variant: small-caps;
-    font-size: 1.2em;
-    padding: 10px 40px;
-    background: none;
-    border: 4px solid;
-    margin: 0px 30px;
-}
-.positiveButton {
-    border-color: #22cc07;
-    color: #22cc07;}
-.negetiveButton {
-    border-color: #cc0808;
-    color: #cc0808;}
 footer {
     text-align: center;
     background: black;}
 footer p {margin-top: 0;}
 footer h2 {margin-bottom: 5px;}
+
+ /* Button */
+.button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: oswald;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    border: 3px solid;
+    font-size: 1.5em;
+    padding: 10px 60px;
+    margin: 5px 10px;}
+
+.buttonPositive {
+    color:#40a000;
+    border-color:#40a000;}
+.buttonPositive:hover {
+    color: #ddd;
+    background: #40a000;}
+.buttonNegative {
+    color:#a00101;
+    border-color:#a00101;}
+.buttonNegative:hover {
+    color: #ddd;
+    background: #a00101;}
+/* Custom select */
+.customSelect {
+    padding: 0; margin: 0;
+    background: url(img/icon1.png) no-repeat center;
+    background-position: 90%;}
+.customSelect > select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; width: 100%;
+    font-family: oswald;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    padding: 10px 10%;
+    background: none;
+    border: 3px solid black;}
+/* Advanced */
+section .row:first-child img {width: 50%;}
+.filtered {
+    border-spacing: 0px 5px;
+    width: 100%;
+    color: black;}
+.filtered tr {border-bottom: 1px solid black;}
+.filtered td {padding: 5px 5px;}
+.filtered a {
+    background: #307fff;
+    float: left;
+    width: 100%; height: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-variant: small-caps;
+    color: white;}
+.filtered a:hover {background: #2376fc;}
