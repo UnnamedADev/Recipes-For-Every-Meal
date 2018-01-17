@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.0.3 - Recipes For Every Meal</title>
+    <title>v0.0.4 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
 </head>
@@ -19,24 +19,24 @@
                 <div class="col-3">
                     <div class="customSelect">
                         <select name="fMeal">
-                           <option value="0">-- Choose meal --</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                            <option value="tea time">Tea Time</option>
-                            <option value="supper">Supper</option>
-                            <option value="snack">Snack</option>
+                           <option value="0">-- posiłek --</option>
+                            <option value="śniadanie">śniadanie</option>
+                            <option value="lunch">lunch</option>
+                            <option value="obiad">obiad</option>
+                            <option value="podwieczorek">podwieczorek</option>
+                            <option value="kolacja">kolacja</option>
+                            <option value="przekąska">przekąska</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="customSelect">
                         <select name="fDifficulty">
-                           <option value="0">-- Choose difficulty --</option>
-                            <option value="newbie">Newbie</option>
-                            <option value="basic">Basic</option>
-                            <option value="nightmare">Nightmare</option>
-                            <option value="hell">Hell</option>
+                           <option value="0">-- trudność --</option>
+                            <option value="laik">laik</option>
+                            <option value="podstawowy">podstawowy</option>
+                            <option value="koszmar">koszmar</option>
+                            <option value="piekło">piekło</option>
                         </select>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $meal = $_POST["fMeal"];
                             $difficulty = $_POST["fDifficulty"];
-                            
+             
                             $host = "localhost";
                             $username = "root";
                             $password = "";
@@ -71,6 +71,9 @@
                             if($connection->connect_error){
                                 die("ERROR 1");
                             }else
+                                
+                            $connection->query("SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
+                            $connection->query("SET CHARSET utf8");
                             
                             $qr = "SELECT recipes.id, recipes.title, meals.name AS mname, difficulties.name AS dname FROM recipes 
                             INNER JOIN meals 
@@ -87,17 +90,18 @@
                             <th>Trudność:</th>
                             <th></th>
                             </tr>";
+                            
                             if($result->num_rows>0){
                                 while($row = $result->fetch_assoc()){
                                     echo "<tr>
-                                    <td>".$row["title"]."</td>
+                                    <td>''".$row["title"]."''</td>
                                     <td>".$row["mname"]."</td>
                                     <td>".$row["dname"]."</td>
                                     <td><a href='choosen.php?obiekt=".$row["id"]."'>Sprawdź</a></td>
                                     </tr>";
                                 }
                             }else{
-                                echo "NO DATA";
+                                echo "<p class='emergencyAlert'>!NO DATA!</p>";
                             }
                             echo "</tbody></table>";
                         }
@@ -109,8 +113,8 @@
         
     </section>
     <footer>
-        <h2>Enjoyyy!</h2>
-        <p>Site created for all of you!</p>
+        <h2>Korzystaj!</h2>
+        <p>Strona tworzona dla was wszystkich!</p>
     </footer>
 </body>
 </html>
