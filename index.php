@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.0.4 - Recipes For Every Meal</title>
+    <title>v0.1.1 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
 </head>

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.0.4 - Recipes For Every Meal</title>
+    <title>v0.1.1 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+    <script src="jquery-3.2.1.min.js"></script>
     <script src="difficulty.js"></script>
 </head>
 <body>
@@ -75,9 +76,19 @@
                     <h1 class="recipeTitle"><?php echo $r_title; ?></h1>
                     <p class="recipeSubtitle">Masz to zjeśc jako: <?php echo $m_name;?></p>
                     
-                    <h3>Poziom trudności: <?php echo $d_name;?></h3>
+                    <h3 id="difficulty">Poziom trudności: <?php echo $d_name;?></h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>25%</td>
+                                <td>50%</td>
+                                <td>75%</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <div class="difficultyMeter">
-                        <div></div>
+                        <div id="difficultyBar"></div>
                     </div>
                     
                     <h2>Co musisz znaleźć w kuchni:</h2>
