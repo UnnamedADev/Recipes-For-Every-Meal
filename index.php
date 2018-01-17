@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.2 - Recipes For Every Meal</title>
+    <title>v0.1.3 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
 </head>
@@ -103,6 +103,7 @@
                             }else{
                                 echo "<p class='emergencyAlert'>!NO DATA!</p>";
                             }
+                            $connection->close();
                             echo "</tbody></table>";
                         }
                     ?>

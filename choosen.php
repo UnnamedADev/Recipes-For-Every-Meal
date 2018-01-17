@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.2 - Recipes For Every Meal</title>
+    <title>v0.1.3 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
     <script src="jquery-3.2.1.min.js"></script>
@@ -69,6 +69,7 @@
                             }else{
                                 echo "<p class='emergencyAlert'>NO DATA</p>";
                             }
+                        $connection->close();
                     ?>
             <div class="row myRecipe">
                 <div class="col-2"></div>
