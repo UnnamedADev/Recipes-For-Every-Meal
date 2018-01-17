@@ -131,4 +131,4 @@ section .row:first-child img {width: 50%;}
     margin: 0px;
     text-align: right;
     color: #c90000; }
-table {width: 100%; font-size: 0.8em; text-align: right;}
+.myRecipe table {width: 100%; font-size: 0.8em; text-align: right;}
