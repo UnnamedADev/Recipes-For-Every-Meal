@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.6 - Recipes For Every Meal</title>
+    <title>v0.1.7 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="zoom.css">
@@ -44,7 +44,8 @@
                         recipes.href AS r_href,
                         meals.name AS m_name,
                         difficulties.name AS d_name,
-                        difficulties.description AS d_description
+                        difficulties.description AS d_description,
+                        recipes.time AS r_time
                         FROM recipes 
                         INNER JOIN meals 
                         ON recipes.meal_id=meals.id 
@@ -67,6 +68,7 @@
                                     $m_name = $row["m_name"];
                                     
                                     $d_name = $row["d_name"];
+                                    $r_time = $row["r_time"];
                                     $d_description = $row["d_description"];
                                 }
                             }else{
@@ -79,7 +81,7 @@
                 <div class="col-8">
                     <h1 class="recipeTitle"><?php echo $r_title; ?></h1>
                     <p class="recipeSubtitle">Masz to zjeśc jako: <?php echo $m_name;?></p>
-                    
+                    <h3 id="difficulty">Czas przygotowania: <?php echo $r_time;?></h3>
                     <h3 id="difficulty">Poziom trudności: <?php echo $d_name;?></h3>
                     <table>
                         <tbody>
