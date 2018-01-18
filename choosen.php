@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.4 - Recipes For Every Meal</title>
+    <title>v0.1.5 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="zoom.css">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="difficulty.js"></script>
+    <script src="zoom.js"></script>
 </head>
 <body>
 
@@ -39,6 +41,7 @@
                         recipes.measures AS r_measures,
                         recipes.instruction AS r_instruction,
                         recipes.addnotation AS r_addnotation,
+                        recipes.href AS r_href,
                         meals.name AS m_name,
                         difficulties.name AS d_name,
                         difficulties.description AS d_description
@@ -59,6 +62,7 @@
                                     $r_measures = $row["r_measures"];
                                     $r_instruction = $row["r_instruction"];
                                     $r_addnotation = $row["r_addnotation"];
+                                    $r_href = $row["r_href"];
                                     
                                     $m_name = $row["m_name"];
                                     
@@ -102,6 +106,17 @@
                     
                     <h2 class="advices">Co musisz wiedzieć?</h2>
                     <p class="advices"><?php echo $r_addnotation; ?></p>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row myRecipe print">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h2>Wersja do druku</h2>
+                    
+                    <img id="recipeImg" src="<?php echo "img/recipes/przepis-".$r_href; ?>">
+                    <p>Podgląd (Kliknij by powiększyć)</p>
+                    <a href="<?php echo "img/recipes/przepis-".$r_href; ?>" download>Pobierz</a>
                 </div>
                 <div class="col-2"></div>
             </div>
