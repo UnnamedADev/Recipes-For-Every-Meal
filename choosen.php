@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.5 - Recipes For Every Meal</title>
+    <title>v0.1.6 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="zoom.css">
@@ -115,7 +115,7 @@
                     <h2>Wersja do druku</h2>
                     
                     <img id="recipeImg" src="<?php echo "img/recipes/przepis-".$r_href; ?>">
-                    <p>Podgląd (Kliknij by powiększyć)</p>
+                    <p>Podgląd (kliknij obrazek by powiększyć)</p>
                     <a href="<?php echo "img/recipes/przepis-".$r_href; ?>" download>Pobierz</a>
                 </div>
                 <div class="col-2"></div>
