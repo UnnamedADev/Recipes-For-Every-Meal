@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v0.1.7 - Recipes For Every Meal</title>
+    <title>v0.1.8 - Recipes For Every Meal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="zoom.css">
@@ -106,7 +106,7 @@
                     <h2>Co z tym zrobić i jak zrobić?</h2>
                     <p><?php echo $r_instruction; ?></p>
                     
-                    <h2 class="advices">Co musisz wiedzieć?</h2>
+                    <h2 class="advices">Rady z dobrego serca</h2>
                     <p class="advices"><?php echo $r_addnotation; ?></p>
                 </div>
                 <div class="col-2"></div>
@@ -116,9 +116,10 @@
                 <div class="col-8">
                     <h2>Wersja do druku</h2>
                     
-                    <img id="recipeImg" src="<?php echo "img/recipes/przepis-".$r_href; ?>">
+                    <img id="recipeImg" src="<?php echo "cache/recipes/przepis-".$r_href.".png"; ?>">
                     <p>Podgląd (kliknij obrazek by powiększyć)</p>
-                    <a href="<?php echo "img/recipes/przepis-".$r_href; ?>" download>Pobierz</a>
+                    <a href="<?php echo "cache/recipes/przepis-".$r_href.".png"; ?>" download>Pobierz .png</a>
+                    <a href="<?php echo "cache/recipes/przepis-".$r_href.".odt"; ?>" download>Pobierz .odt</a>
                 </div>
                 <div class="col-2"></div>
             </div>
